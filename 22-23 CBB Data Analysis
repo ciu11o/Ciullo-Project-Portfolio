@@ -1,0 +1,9 @@
+-- Calculating D1 average shooting %s
+SELECT 
+ROUND(AVG((CAST("2P" AS DECIMAL(8,2))/CAST("2PA" AS DECIMAL(8,2)))*100), 2) 
+AS "Avg2P%",
+ROUND(AVG("3P%")*100, 2) AS "Avg3P%",
+ROUND(AVG("FT%")*100, 2) AS "AvgFT%"
+FROM cbbdata
+WHERE "2PA" > 0 AND "3PA" > 0 AND "FTA" > 0;
+
